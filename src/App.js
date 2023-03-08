@@ -29,17 +29,6 @@ class App extends React.Component {
   }
 
   handleSubmitChange = (e) => {
-    e.preventDefault();
-    const newTodos = {
-      title: this.state.newTodo,
-      id: this.state.todos.length + 1,
-      done: false,
-    }
-    console.log(newTodos);
-    if (newTodos.title.length > 0) {
-      const updatedTodos = [...this.state.todos, newTodos];
-      this.setState({ todos: updatedTodos, newTodo: "" }); // clear input field after adding new todo
-    }
   }
 
 
