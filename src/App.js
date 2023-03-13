@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
       todos: [], // prayan array koji se treba puniti fetchovima
       done: false, // done se koristi kako bi se oznacio todo kao uradjen ili neuradjen
-      newTodo: "", // ovaj state key se koristi pri kreiranju novih to-do-ova preko input metoda
+      newTodo: '', // ovaj state key se koristi pri kreiranju novih to-do-ova preko input metoda
     }
   }
 
@@ -22,20 +22,30 @@ class App extends React.Component {
   }
 
   handleInputChange = (e) => {
-    if (1 > 0) {
-      this.setState({ newTodo: e.target.value });
-      console.log(this.state.newTodo);
-    }
+    this.setState({ newTodo: e.target.value });
   }
 
   handleSubmitChange = (e) => {
+    e.preventDefault();
+    const newTodoObj = {
+      name: this.state.newTodo,
+      id: this.state.todos.length + 1,
+      done: this.state.done,
+    }
+    if (newTodoObj.name.length > 0) {
+      const updatedTodos = [...this.state.todos, newTodoObj];
+      this.setState({ todos: updatedTodos, newTodo: '' });
+    }
+    console.log(this.state.newTodo);
   }
+
+
 
 
   render() {
     return (
-      <div className="">
-        <TodoInput inputChange={this.handleInputChange} submitChange={this.handleSubmitChange} />
+      <div className=" align-middle justify-center">
+        <TodoInput inputChange={this.handleInputChange} submitChange={this.handleSubmitChange} addToDo={this.addTodo} />
         <TodoItem />
         <TodoList todos={this.state.todos} />
       </div>
