@@ -11,6 +11,7 @@ const TodoList = ({ todos }) => {
                         name={todos[i].name}
                         id={todos[i].id}
                         key={todos[i].id}
+                        completed={todos[i].completed}
                     />
                 })
             }

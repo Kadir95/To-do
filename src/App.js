@@ -46,12 +46,22 @@ class App extends React.Component {
     this.setState({ newTodo: '' });
   }
 
+  handleDoneChange = () => {
+    if (this.state.done === false) {
+      this.setState({ done: true });
+      alert("Its true now");
+    }
+    else if (this.state.done === true) {
+      this.setState({ done: false });
+      alert("Its false now");
+    }
+  }
 
   render() {
     return (
-      <div className=" bg-blue-500 p-5 absolute">
+      <div className=" bg-cyan-200">
         <TodoInput inputChange={this.handleInputChange} submitChange={this.handleSubmitChange} value={this.state.newTodo} handleResetButton={this.handleResetButton} />
-        <TodoItem />
+        <TodoItem doneChange={this.handleDoneChange} />
         <TodoList todos={this.state.todos} />
       </div>
     )

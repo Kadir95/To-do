@@ -5,9 +5,9 @@ const TodoInput = ({ inputChange, submitChange, value, handleResetButton }) => {
     return (
         <div>
             <form onSubmit={submitChange}>
-                <input type="text" placeholder="enter to-do" onChange={inputChange} value={value} />
-                <button onClick={submitChange} type="submit">Enter</button>
-                <button type="reset" className="ml-3" onClick={handleResetButton}>Reset</button>
+                <input className=" opacity-80" type="text" placeholder="enter to-do" onChange={inputChange} value={value} />
+                <button className="ml-3 bg-green-400 " onClick={submitChange} type="submit">Enter</button>
+                <button className="ml-3 bg-red-600 " type="reset" onClick={handleResetButton}>Reset</button>
             </form>
         </div>
     )
