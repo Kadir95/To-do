@@ -4,15 +4,16 @@ import TodoItem from "./TodoItem";
 
 const TodoList = ({ todos }) => {
     return (
-        <div id="TodoListDiv">
+        <div>
             {
                 todos.map((todo, i) => {
                     return <TodoItem
-                        name={todos[i].name}
-                        id={todos[i].id}
-                        key={todos[i].id}
-                        completed={todos[i].completed}
+                        name={todo.name}
+                        id={todo.id}
+                        key={todo.id}
+                        completed={todo.completed}
                     />
+
                 })
             }
         </div>

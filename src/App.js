@@ -61,7 +61,7 @@ class App extends React.Component {
     return (
       <div className=" bg-cyan-200">
         <TodoInput inputChange={this.handleInputChange} submitChange={this.handleSubmitChange} value={this.state.newTodo} handleResetButton={this.handleResetButton} />
-        <TodoItem doneChange={this.handleDoneChange} />
+        <TodoItem doneChange={this.handleDoneChange} completed={this.state.done} />
         <TodoList todos={this.state.todos} />
       </div>
     )

@@ -2,7 +2,6 @@ import React from "react";
 
 const TodoItem = ({ name, id, doneChange, completed, deleteChange }) => { // propovi iz parent elementa TodoListe i App
     const textDecoration = completed ? "line-through" : "none";
-
     return (
         <div className="flex ">
             <ul>
@@ -14,6 +13,7 @@ const TodoItem = ({ name, id, doneChange, completed, deleteChange }) => { // pro
         </div>
     )
 }
+
 
 
 
