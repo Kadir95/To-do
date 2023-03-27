@@ -1,18 +1,18 @@
 export const todos = [
     {
-        name: "get up early",
+        name: "Get up early",
         id: 1,
     },
     {
-        name: "make bed",
+        name: "Make bed",
         id: 2
     },
     {
-        name: "drink water",
+        name: "Drink water",
         id: 3
     },
     {
-        name: "stretch",
+        name: "Stretch",
         id: 4
     },
 ]

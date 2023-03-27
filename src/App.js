@@ -1,7 +1,6 @@
 import React from "react";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
-import TodoItem from "./TodoItem";
 import { todos } from "./todos";
 
 
@@ -38,7 +37,11 @@ class App extends React.Component {
       const updatedTodos = [...this.state.todos, newTodoObj];
       this.setState({ todos: updatedTodos, newTodo: '' });
     }
-    console.log(this.state.newTodo);
+  }
+
+  handleDeleteChange = (id) => {
+    const filteredTodos = this.state.todos.filter(todo => todo.id !== id);
+    this.setState({ todos: filteredTodos });
   }
 
 
@@ -46,23 +49,33 @@ class App extends React.Component {
     this.setState({ newTodo: '' });
   }
 
-  handleDoneChange = () => {
-    if (this.state.done === false) {
-      this.setState({ done: true });
-      alert("Its true now");
-    }
-    else if (this.state.done === true) {
-      this.setState({ done: false });
-      alert("Its false now");
-    }
-  }
+  handleDoneChange = (id) => {
+    this.setState(prevState => ({
+      todos: prevState.todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed // toggle the completed property
+          };
+        }
+        return todo;
+      })
+    }));
+  };
 
   render() {
     return (
-      <div className=" bg-cyan-200">
-        <TodoInput inputChange={this.handleInputChange} submitChange={this.handleSubmitChange} value={this.state.newTodo} handleResetButton={this.handleResetButton} />
-        <TodoItem doneChange={this.handleDoneChange} completed={this.state.done} />
-        <TodoList todos={this.state.todos} />
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-purple-400 to-pink-800">
+        <div className=" bg-indigo-400 rounded-lg shadow-md p-6">
+          <TodoInput inputChange={this.handleInputChange}
+            submitChange={this.handleSubmitChange}
+            value={this.state.newTodo}
+            handleResetButton={this.handleResetButton} />
+          <TodoList todos={this.state.todos}
+            doneChange={this.handleDoneChange}
+            deleteChange={this.handleDeleteChange}
+          />
+        </div>
       </div>
     )
   }
