@@ -7,6 +7,7 @@ const TodoList = ({ todos, doneChange, deleteChange }) => {
         <div className="font-sans font-semibold ">
             {
                 todos.map((todo, i) => {
+
                     return <TodoItem
                         name={todo.name}
                         id={todo.id}

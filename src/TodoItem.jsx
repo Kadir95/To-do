@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const TodoItem = ({ id, name, completed, doneChange, deleteChange }) => {
-    const textDecoration = completed ? "line-through" : "none";
+    const textDecoration = completed ? "line-through" : "none"; // ako je todo completed, text decor je line through, else -> none
 
     return (
         <div className=" ">

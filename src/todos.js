@@ -1,4 +1,4 @@
-export const todos = [
+export const todoArray = [
     {
         name: "Get up early",
         id: 1,
